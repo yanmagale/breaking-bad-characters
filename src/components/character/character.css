@@ -37,3 +37,22 @@
 .status__dead {
   background-color: #de960f;
 }
+
+@media only screen and (max-width: 400px) {
+  .character {
+    width: 150px;
+    height: 250px;
+    padding-bottom: 10px;
+  }
+  .character__image {
+    width: 130px;
+    height: 250px;
+  }
+  .character__informations {
+    top: -115px;
+  }
+  .status {
+    top: -250px;
+    left: 70px;
+  }
+}
