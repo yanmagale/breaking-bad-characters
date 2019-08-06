@@ -1,0 +1,39 @@
+.character {
+  padding: 0;
+  margin: 0;
+  width: 300px;
+  height: 340px;
+}
+.character__image {
+  width: 220px;
+  height: 300px;
+}
+.character__informations {
+  position: relative;
+  top: -95px;
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.character__informations--text {
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  padding: 5px 0 2px 0;
+}
+.status {
+  position: relative;
+  top: -300px;
+  width: 40%;
+  left: 100px;
+  text-align: right;
+  font-weight: 400;
+  color: #fff;
+}
+.status__alive {
+  background-color: #154815;
+}
+.status__dead {
+  background-color: #de960f;
+}
