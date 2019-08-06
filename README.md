@@ -21,6 +21,7 @@ Breaking Bad Characters List
 - Redux
 - Jest
 - Eslint/Prettier
+- For CI: Netlify
 
 # Next steps
 
