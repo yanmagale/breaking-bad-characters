@@ -7,6 +7,10 @@ Breaking Bad Characters List
 - Acess folder and Run `yarn install`
 - After install depedencies, run `yarn start`
 
+# Tests
+
+- Run `yarn test`
+
 # Stack
 
 - React
