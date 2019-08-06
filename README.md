@@ -11,6 +11,10 @@ Breaking Bad Characters List
 
 - Run `yarn test`
 
+# Demo
+
+- Access [this url](https://breaking-bad-characters.netlify.com/)
+
 # Stack
 
 - React
