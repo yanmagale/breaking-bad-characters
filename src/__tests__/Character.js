@@ -28,35 +28,51 @@ describe('<Character> Component', () => {
     wrapper = shallow(<Character {...props} />);
   });
 
-  it('Render without crashing', () => {
+  it('Should Render without crashing', () => {
     expect(wrapper).not.toBeNull();
   });
 
-  it('Render Character Information', () => {
-    const characterName = wrapper
-      .find('.character__informations')
-      .children()
-      .at(0)
-      .text();
+  describe('Checking Character Information', () => {
+    it('Should render name of the Character', () => {
+      const characterName = wrapper
+        .find('.character__informations')
+        .children()
+        .at(0)
+        .text();
+      expect(characterName.trim()).toEqual(props.character.name);
+    });
 
-    expect(characterName.trim()).toEqual(props.character.name);
+    it('Should render birthday of the Character', () => {
+      const characterBirthday = wrapper
+        .find('.character__informations')
+        .children()
+        .at(1)
+        .text();
+      expect(characterBirthday.trim()).toEqual(props.character.birthday);
+    });
 
-    expect(wrapper.find('.character__informations').text()).toContain(
-      props.character.birthday
-    );
-    expect(wrapper.find('img').props().src).toEqual(props.character.img);
+    it('Should render image of the Character', () => {
+      expect(wrapper.find('img').props().src).toEqual(props.character.img);
+    });
+
+    it('Should render ocupations of the Character', () => {
+      const characterOcupations = wrapper
+        .find('.character__informations')
+        .children()
+        .last()
+        .text();
+      expect(characterOcupations).toContain(props.character.occupation);
+    });
+
+    it('Should render status of the Character', () => {
+      expect(wrapper.find('.status').text()).toEqual(props.character.status);
+    });
   });
 
-  it('Render correctly UI indicator based on Characters Status', () => {
+  it('Show Render correctly UI indicator based on Characters Status', () => {
     expect(wrapper.find('.status').hasClass('status__dead')).toBe(true);
 
     wrapper.setProps({ character: { ...props.character, status: 'Alive' } });
     expect(wrapper.find('.status').hasClass('status__alive')).toBe(true);
   });
-
-  /* Pending Tests 
-    - Test all character informations
-    - Test status renderer
-  
-  */
 });
