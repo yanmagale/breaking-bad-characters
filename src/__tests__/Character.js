@@ -29,15 +29,34 @@ describe('<Character> Component', () => {
   });
 
   it('Render without crashing', () => {
-    expect(wrapper.exists()).toBeTruthy();
+    expect(wrapper).not.toBeNull();
   });
 
-  it('Render Character Inforation', () => {
-    expect(wrapper.find('.character__informations').text()).toContain(
-      props.character.name
-    );
+  it('Render Character Information', () => {
+    const characterName = wrapper
+      .find('.character__informations')
+      .children()
+      .at(0)
+      .text();
+
+    expect(characterName.trim()).toEqual(props.character.name);
+
     expect(wrapper.find('.character__informations').text()).toContain(
       props.character.birthday
     );
+    expect(wrapper.find('img').props().src).toEqual(props.character.img);
   });
+
+  it('Render correctly UI indicator based on Characters Status', () => {
+    expect(wrapper.find('.status').hasClass('status__dead')).toBe(true);
+
+    wrapper.setProps({ character: { ...props.character, status: 'Alive' } });
+    expect(wrapper.find('.status').hasClass('status__alive')).toBe(true);
+  });
+
+  /* Pending Tests 
+    - Test all character informations
+    - Test status renderer
+  
+  */
 });
